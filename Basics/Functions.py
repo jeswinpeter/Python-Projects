@@ -1,5 +1,8 @@
-# This is an upcoming project 
+# Exercise 1: Hello, World!
+# Write a function that takes no arguments and prints "Hello, World!" to the console.
 
-print("Thank you for Checking out")
+def Hello_world():
+    print("---- Hello World ----")
 
-# Come Back Later
+Hello_world()
+
