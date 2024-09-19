@@ -7,7 +7,7 @@ except ZeroDivisionError:
 #--------------------------------------------
 
 
-# #---- Excersise 2 - TypeError ----#
+#------- Excersise 2 - TypeError -------#
 
 word = "Exception"
 x = 10
@@ -16,7 +16,7 @@ try:
     print(word + x)
 except TypeError:
     print("Cannot concatenate an int value with a string")
-#---------------------------------------------
+#--------------------------------------------#
 
 
 #---- Exercise 3: Catching a ValueError ----#
@@ -26,4 +26,18 @@ try:
     print(f"{w} is a valid input")
 except ValueError:
     print("Cannot convert string to an int")
-#---------------------------------------------
+#--------------------------------------------#
+
+#---- Exercise 4: Multiple exceptions -----#
+
+string = "multiple"
+
+try:
+    value = int(input("Enter a value -> "))
+    print((value/0) + string)
+except ValueError:  #If the user inputs a string
+    print("cannot convert string type to integer")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except TypeError:
+    print("Cannot concatenate an integer with a string")
