@@ -1,6 +1,6 @@
 # `Python-Projects`
 
-![Python gif](https://github.com/jeswinpeter/Python-Projects/blob/main/python%20gif%20for%20README.gif)
+![Python gif](https://github.com/jeswinpeter/HTML-CSS/blob/main/IMAGES/python%20gif%20for%20README.gif)
 
 ### `Intentions`
 Just for fun i decided to learn Python. I will be adding the projects I do to this repository.
