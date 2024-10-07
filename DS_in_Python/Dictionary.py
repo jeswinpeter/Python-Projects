@@ -20,15 +20,16 @@
 fav_subject = {}
 
 i = 0
-name_1 = input("Enter Name")
-name_2 = input("Enter Name")
 
-fav_subject = {name_1 : '', name_2 : ''}
-
-fav_subject[name_1] = input("Enter favorite Subject: ")
-fav_subject[name_2] = input("Enter favorite Subject: ")
+while i < 4:
+    name_1 = input("Enter Name: ")
+    fav_subject[name_1] = input("Enter favorite Subject: ")
+    i += 1
 
 # Printing dictionary using a loop
 for key, value in fav_subject.items(): 
     print(f"\nKey: {key}")
     print(f"Value: : {value}")
+
+for k in fav_subject.keys():
+    print(k.title())
