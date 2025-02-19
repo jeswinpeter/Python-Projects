@@ -1,30 +1,39 @@
-# --- Basic Printing, data types 
-print("---- Learning Python Basics -----")
+# # --- Basic Printing, data types 
+# print("---- Learning Python Basics -----")
     
-name: str = "Hydra"
-age: int = 100
+# name: str = "Hydra"
+# age: int = 100
 
-name2 = "Tom"
+# name2 = "Tom"
 
-#Trying out Multi line Printing
-comment = """HI there
-    Starting to learn Python"""
+# #Trying out Multi line Printing
+# comment = """HI there
+#     Starting to learn Python"""
 
-#Formated printing with Multi line printing
-mail = """
-Hail {},
-My name is {}
-hail {}
-"""
+# #Formated printing with Multi line printing
+# mail = """
+# Hail {},
+# My name is {}
+# hail {}
+# """
 
-print(mail.format(name,name2,name))
+# print(mail.format(name,name2,name))
 
-check = True
-PI = 3.14
+# check = True
+# PI = 3.14
 
-print(type(PI))
-print(type(check))
-print("Name -" ,name , "Age -" ,age)
-print(comment)
+# print(type(PI))
+# print(type(check))
+# print("Name -" ,name , "Age -" ,age)
+# print(comment)
 
+
+name = "rahul"
+
+array = []
+
+for x in name:
+    array.append(x)
+
+print(array)
 
