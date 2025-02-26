@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
 
-input_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+# styles = plt.style.available
 
+# print(styles)
+input_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 squares = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196]
+
+plt.style.use('fivethirtyeight')
 
 fig, ax = plt.subplots()
 ax.plot(input_values, squares, linewidth=3)
