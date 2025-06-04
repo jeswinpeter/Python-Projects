@@ -12,7 +12,7 @@ class Alien(Sprite):
         # Load the alien image and set its rect attribure.
         self.img = pg.image.load('D:/Python Projeccts/Python_alien_game/Images/Alien.bmp')
         org_size = self.img.get_size()
-        scaled_size = (org_size[0] // 6, org_size[1] // 5)
+        scaled_size = (org_size[0] // 9, org_size[1] // 7)
         self.image = pg.transform.scale(self.img, scaled_size)
         self.rect = self.image.get_rect()
 
