@@ -8,11 +8,12 @@ class Alien(Sprite):
         """Initialize the alien and set its starting position."""
         super().__init__()
         self.screen = ai_game.screen
+        self.settings = ai_game.settings
 
         # Load the alien image and set its rect attribure.
         self.img = pg.image.load('D:/Python Projeccts/Python_alien_game/Images/Alien.bmp')
         org_size = self.img.get_size()
-        scaled_size = (org_size[0] // 9, org_size[1] // 7)
+        scaled_size = (org_size[0] // 9, org_size[1] // 8)
         self.image = pg.transform.scale(self.img, scaled_size)
         self.rect = self.image.get_rect()
 
@@ -23,3 +24,17 @@ class Alien(Sprite):
         # Store the alien's exact horizontal position.
         self.x = float(self.rect.x)
         
+    # Motion
+    def update(self): 
+        """ Move the alien right or left. """
+        self.x += (self.settings.alien_speed * self.settings.fleet_direction)
+        self.rect.x = self.x
+
+    def check_edges(self): 
+        """ Return True if alien is at edge of screen."""
+        screen_rect = self.screen.get_rect()
+
+        if self.rect.right >= screen_rect.right or self.rect.left <= 0:
+            return True
+    
+    
