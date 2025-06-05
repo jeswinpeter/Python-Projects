@@ -18,3 +18,9 @@ class Settings:
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
         self.ammo_limit = 12
+
+        # Alien Settings
+        self.alien_speed = 1.0
+        self.fleet_drop_speed = 10
+        # Fleet direction od 1 represents right, and -1 means lefr
+        self.fleet_direction = 1
