@@ -93,6 +93,16 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+        
+        # Check for collision with alien
+        # If collision remove both bullet and the alien
+        collision = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+
+        # Creating new fleet once all aliens are dead
+        if not self.aliens:
+            # Destroy existing bullets and create new fleet.
+            self.bullets.empty()
+            self._create_fleet()
 
     def _create_alien(self, alien_number, row_number):
         # Create an alien and place it in the row.
@@ -144,16 +154,16 @@ class AlienInvasion:
         self.aliens.update()
 
     def _update_screen(self):
-            """Update images on the screen, and flip to the new screen.""" 
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme()
-            for bullet in self.bullets.sprites():
-                bullet.draw_bullet()
-            
-            self.aliens.draw(self.screen)
+        """Update images on the screen, and flip to the new screen.""" 
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
+        
+        self.aliens.draw(self.screen)
 
-            # Make the most recently drawn screen visible.
-            pygame.display.flip()
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
