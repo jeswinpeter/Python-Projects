@@ -29,9 +29,6 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
 
-        # Setting Background color (Removed when settings was added.)
-        # self.bg_color = (200, 230, 230)
-
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -49,11 +46,7 @@ class AlienInvasion:
                 elif event.type == pygame.KEYDOWN:
                     self._check_keydown_events(event)
                 elif event.type == pygame.KEYUP:
-                    self._check_keyup_events(event)
-
-                # elif event.type == pygame.MOUSEBUTTONDOWN:
-                #     self._check_keydown_events(event)
-                      
+                    self._check_keyup_events(event)            
 
     def _check_keydown_events(self, event):
          """Respond to keypresses."""
@@ -67,8 +60,6 @@ class AlienInvasion:
              sys.exit()
          elif event.key == pygame.K_SPACE:
              self._fire_bullet()
-        #  elif event.button == pygame.BUTTON_LEFT:
-        #      self._fire_bullet()
 
     def _check_keyup_events(self, event):
          """Respond to key releases."""
@@ -77,6 +68,7 @@ class AlienInvasion:
 
          elif event.key == pygame.K_LEFT:
             self.ship.movivig_left = False
+
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
@@ -94,7 +86,10 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
         
-        # Check for collision with alien
+        self._check_bullet_alien_collision()
+
+    def _check_bullet_alien_collision(self): 
+        """ Respond to bullet - alien collisions. """
         # If collision remove both bullet and the alien
         collision = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
 
@@ -103,6 +98,7 @@ class AlienInvasion:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
             self._create_fleet()
+
 
     def _create_alien(self, alien_number, row_number):
         # Create an alien and place it in the row.
@@ -124,7 +120,7 @@ class AlienInvasion:
         available_space_x = self.settings.screen_width - (alien_width)
         number_aliens_x = available_space_x // (2 * alien_width)
         
-        #Calcuteing the number of rows 
+        #Calcuteing the number of rows of aliens
         ship_height = self.ship.rect.height
         available_space_y = (self.settings.screen_height - (3 * alien_height) - ship_height)
         number_rows = available_space_y // (2 * alien_height)
@@ -152,6 +148,7 @@ class AlienInvasion:
             then Update the position of all aliens in the fleet. """
         self._check_fleet_edges()
         self.aliens.update()
+
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen.""" 
