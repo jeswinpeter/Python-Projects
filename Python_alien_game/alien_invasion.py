@@ -10,6 +10,7 @@ from button import Button
 from ship import Ship
 from bullet import Bullet 
 from alien import Alien
+from sound import Sounds
 
 class AlienInvasion:
     """Overall class to manage game assests and behavior"""
@@ -35,6 +36,9 @@ class AlienInvasion:
 
         # Make the play button.
         self.play_button = Button(self, "Play")
+
+        # Making sound instance
+        self.sounds = Sounds(self)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -98,6 +102,9 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
+            # Change the bgm 
+            self.sounds.play_bgm()
+
             # Hide the mouse cursor.
             pygame.mouse.set_visible(False)
 
@@ -106,6 +113,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.ammo_limit:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            self.sounds.fire_sound()
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
@@ -176,6 +184,9 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """ Respond to the ship being hit by an alien. """
+        # Play explosion sound effect
+        self.sounds.ship_explode_sound()
+
         # Decrement ship_left.
         if self.stats.ship_left > 0:
             self.stats.ship_left -= 1
