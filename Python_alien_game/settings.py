@@ -22,7 +22,7 @@ class Settings:
         
 
         # How quickly the game speeds up 
-        self.speedup_scale = 1.5
+        self.speedup_scale = 1.4
 
         self.initialize_dynamic_settings()
 
